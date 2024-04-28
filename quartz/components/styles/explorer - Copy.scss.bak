@@ -50,7 +50,7 @@ button#explorer {
   margin-top: 0.5rem;
 
   &.collapsed > .overflow::after {
-    opacity: 0.7t;
+    opacity: 0;
   }
 
   & ul {
@@ -63,7 +63,7 @@ button#explorer {
       opacity 0.2s ease;
     & li > a {
       color: var(--dark);
-      opacity: 1.0;
+      opacity: 0.75;
       pointer-events: all;
     }
   }
