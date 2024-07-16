@@ -48,15 +48,12 @@ Let's hope you've never experienced the regret from wishing you'd kept a backup 
 
 Below are all the steps documented and explained as best as I can, so you can follow along, if you wish, to keep an up to date backup of your data secured in a offsite location.
 
----
-
-This tutorial expects you to already have Portainer running on your client (from here on out referred to as "main-server"). I'll also expect you not to have an OS on the machine that will host your backups using Borg repositories (referred to as "backup-server" below).
-
----
+>[!info] Prerequisites
+>This tutorial expects you to already Docker running on your client (from here on out referred to as "main-server"). I'll also expect you not to have an OS on the machine that will host your backups using Borg repositories (referred to as "backup-server" below).
 
 ## Setting up the Main Server
 
-I am going to use an Asustor AS6404T as my offsite server, since its compact, quite power efficient... and since it's what I have laying around. It's populated with 4 chucked Buffalo NAS 2Tb drives, for a total of 8Tbs worth of capacity. Since my main NAS "only" has 8Tb of capacity, this is perfect for now.
+I am going to use an Asustor AS6404T as my offsite backup-server, since its compact, quite power efficient... and since it's what I have laying around. It's populated with 4 chucked Buffalo NAS 2Tb drives, for a total of 8Tbs worth of capacity. Since my main NAS "only" has 8Tb of capacity, this is perfect for now.
 
 Now, since the Asustor runs its own OS, we have to enable booting from USB on it. Refer to [this guide](https://github.com/mafredri/asustor_as-6xxt/blob/master/boot.md) for help on doing that.
 
@@ -78,13 +75,16 @@ A quite good guide I followed step by step to set up my LVM disk share can be fo
 
 We don't need to create a network accessible share since we'll only be accessing the data on our share from either Borg or a SFTP client like WinSCP.
 
-#### Installing Docker on the Server
+#### Installing Docker on the Backup-Server
 
 During the installation of Ubuntu Server, I chose to let it install Docker for me. If your OS doesn't give you that option during install, please refer to the excellent instructions on [Docker Docs](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) regarding manual Docker install using their `apt` repository.
 
 #### Installing Tailscale
 
 Check out Tailscales own OS / distro-specific instructions for how to install it on your OS [here](https://tailscale.com/kb/installation/)
+
+>[!tip]
+>If you run  `tailscale up --advertise-exit-node` you can use your backup server as a VPN and route your traffic through it!
 
 After you've installed Tailscale, just write `tailscale up` in the terminal. This will start Tailscale. The URL to authenticate the Tailscale client will appear in the terminal window, copy this to your browser and authenticate it.
 
@@ -129,6 +129,8 @@ This mess of code means:
 Please refer to [Tailscales docs](https://tailscale.com/kb/1018/acls/) for further information on ACLs and managing a Tailnet
 
 #### Setting up Portainer
+>[!info] 
+>I've transitioned away from using Portainer since Tailscale threw a real hissy-fit over Portainers use of port 9443 (the communications port for Edge clients). And also since Portainer is quite cumbersome to work with.
 
 Before doing anything, I would recommend signing up for the free business license that will allow us three separate environments. This can be done on their signup page [here](https://www.portainer.io/take-3)
 
@@ -147,7 +149,7 @@ To do this, we need to go to the client and prepare a command to spin up a Porta
 
 You'll find my modified Docker compose for the Server here: [[Borg Server -  Compose]]
 
-Create a new __Stack__ in the backup servers Portainer load up the compose code linked above. Modify it as necessary.
+Create a new __Stack__ in the backup servers Portainer and load up the compose code linked above. Modify it as necessary.
 
 In the directory "/path/to/backup/dir/__sshkeys__", we are going to create a subdirectory named __clients__. In /sshkeys/clients, we are going to create as many subdirectories as we are going to have clients. You can always add to this in the future as your number of clients grows.  
 In every clients subdirectory we will add their ssh.pub keys. Lets create them.

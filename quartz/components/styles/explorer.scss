@@ -4,7 +4,7 @@ button#explorer {
   all: unset;
   background-color: transparent;
   border: none;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
   padding: 0;
   color: var(--dark);
@@ -14,6 +14,7 @@ button#explorer {
   & h1 {
     font-size: 1rem;
     display: inline-block;
+    text-align: center;
     margin: 0;
   }
 
@@ -39,12 +40,12 @@ button#explorer {
 }
 
 .folder-outer > ul {
-  overflow: hidden;
+  overflow: show;
 }
 
 #explorer-content {
   list-style: none;
-  overflow: hidden;
+  overflow: show;
   max-height: none;
   transition: max-height 0.35s ease;
   margin-top: 0.5rem;
@@ -140,9 +141,4 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   background: none !important;
 }
 
-#explorer-end {
-  // needs height so IntersectionObserver gets triggered
-  height: 4px;
-  // remove default margin from li
-  margin: 0;
-}
+

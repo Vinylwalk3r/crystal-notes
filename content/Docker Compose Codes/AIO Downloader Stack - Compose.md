@@ -31,7 +31,7 @@ tags:
 
 A supplementary guide for how to configure these applications are available below:
 
-[[insert link to guid here]]
+[[Configure a AIO Downloader Stack]]
 
 I you want to use any of these codes without the VPN, just remove this and it will work:
 

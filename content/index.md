@@ -7,6 +7,21 @@ aliases:
 draft: false
 ---
 
-Welcome to my page! I'm gonna write this out as I go along. For the moment, enjoy my little knowledge-base!
+A little collection of knowledge, tips, tricks and reminders to both future me and maybe you to? Feel free to browse my little collection of knowledge that I've compiled here.
 
-![[frontimage.png]]
+<img src="_assets/frontimage.png" id="Result1">
+
+<img src="_assets/frontimage.png" class="Result2">
+
+<style type="text/css">
+
+	#Result1 {
+    width: 60rem;
+    }
+
+	 .Result2 {
+    width: 50%;
+    }
+</style>
+
+

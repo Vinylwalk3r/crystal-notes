@@ -28,7 +28,7 @@ Second is security concerns. Data stored on someone else's server is not your da
 
 ---
 
-## Step 1. Preparing a Domain
+## Preparing a Domain
 
 I'm suspecting you'll wanting to access your WebDAV server from anywhere. If not, just skip this step. But for all else, lets get into it.
 
@@ -54,7 +54,7 @@ With that done, time for Nginx. I'm using NPM.
 
 Now we have a domain, a SSL Certificate and a reverse proxy ready. Time to Docker!
 
-## Step 2. Installing WebDAV
+## Installing WebDAV
 
 For this use, I've opted for [Apache-WebDAV](https://github.com/mgutt/docker-apachewebdav) (since it's what I first found in Unraids CA plugin). Lets get it installed.
 
@@ -68,9 +68,14 @@ These are the settings that work for me:
 `Authentication` = Basic  
 `Config` = /path/to/config/folder
 
+### Multi-user Config
+
 Now, here is where we're going have to use a little trickery. If this WebDAV server only will serve one user, just put in your username and password in the `Username` and `Password` variables in the Unraid GUI / docker run command. But if you want multiple users (or just room for expansion) we'll need to make another step.  
 
-Firstly, add a new __path__ and set it to "/path/to/config/webdav/user.passwd".  
+>[!Warning] 
+>Create the user.passwd file in "path/to/config/webdav" dir BEFORE proceeding! Otherwise the docker-run / compose command will create a *folder* with the name "user.passwd" instead of a *file*.
+
+Then add a new __path__ and set it to "/path/to/config/webdav/user.passwd".  
 We need this path mapped so we can touch it form inside the running container. This is because it will set the permissions right so the file will be accessible by the container.
 
 Start the container now, I'll wait.
@@ -83,13 +88,16 @@ htpasswd -B user.passwd alice
 htpasswd -B user.passwd bob
 ```
 
+>[!info] 
+>Each instance of the command "htpasswd" will create a new user. Run the command as many times as you need users
+
 More information about multiple user can be found on its [Github repo](https://github.com/mgutt/docker-apachewebdav#authenticate-multiple-clients).
 
 Now, you should have a working WebDAV server that is accessible from a external domain URL. If so, Congrats!
 
 ---
 
-## Step 3. Setting up Obsidian
+## Setting up Obsidian
 
 Inside Obsidian, go to Settings -> Community Plugins -> Browse and search for __Remotely Save__ and install it. Then Enable it. It should now pop up in the scrollable list to the left.
 
@@ -107,7 +115,7 @@ Now, if you try it, you should have a proper working Obsidian sync using a self 
 
 ---
 
-### ****Refrences****
+### **Refrences**
 
 - Apache-WebDAV by MGutt on Github  
 	 [https://github.com/mgutt/docker-apachewebdav](https://github.com/mgutt/docker-apachewebdav)

@@ -141,7 +141,7 @@ Now, this is a fun one. We can deploy a Discord bot that allows us to make movie
 First, your going to want to deploy the [[AIO Downloader Stack - Compose#Doplarr|Doplarr]] container using the compose codes.
 
 Change the "localhost" in the `Sonarr_URL` and `Radarr_URL` to "127.0.0.1".  
-The `API keys` will you know where to find by now. Scroll up to ****Getting API keys from apps**** for instructions.  
+The `API keys` will you know where to find by now. Scroll up to [[Configure a AIO Downloader Stack#Getting API keys from apps|Getting API keys from apps]] for instructions.  
 `Discord Token` (Im stealing this straight from Kiranshilas great guide on it. Consider this a backup of their work)
 
 > The first step in configuration is creating the bot in Discord itself.  

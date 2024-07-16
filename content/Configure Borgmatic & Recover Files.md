@@ -30,7 +30,7 @@ tags:
 
 This can be done several ways. One way is just to let Borgmatic overwrite the existing files on the host. Say you have a directory "test" that you have backed up. Then it gets corrupted. You CAN let Borgmatic just write into the "test" directory and overwrite the corrupt files with the good copies from the backup.  
 OR  
-We ask Borgmatic to pull the backed up files and put it in a different directory. I personaly like this approach. This is how I do it:
+We ask Borgmatic to pull the backed up files and put it in a different directory. I personally like this approach. This is how I do it:
 
 ```bash
 borgmatic extract --repository {the name of the repo from "borgmatic rlist"} --archive [latest] --destination {destination path on host} --path {full path in archive}
@@ -38,7 +38,7 @@ borgmatic extract --repository {the name of the repo from "borgmatic rlist"} --a
 
 That's a handful, so lets break it down.
 
-- `extract` self explanitory. Borgmatics Extract operation.
+- `extract` self explanatory. Borgmatics Extract operation.
 - `--repository` specifies which repository you want to extract from.
 - `--archive` specifies which archive (specific backup job) we want to get our files from. A commonly used tag is "latest", to pull the most up-to-date files.
 - `--destination` tell Borgmatic where to put the extracted files. My Docker mapping is "/mnt/recover". Make sure it's a WRITABLE DIRECTORY for the Docker container.
