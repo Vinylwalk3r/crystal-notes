@@ -94,7 +94,7 @@ Next, go to the admin dashboard and under __Machines__, click the three dots rel
 
 ##### __Optional__
 
-In the admin dashboard ([https://login.tailscale.com/admin](https://login.tailscale.com/admin)) and go to __Access Controls__.  
+In the [admin dashboard]([https://login.tailscale.com/admin](https://login.tailscale.com/admin)) and go to __Access Controls__.  
 Once there, define your host and access rules like this:
 
 ```json
@@ -168,9 +168,9 @@ As you probably noticed, I've specified a volume path for "/borg/backup" (the de
 4. Enter a identifiable name for the key, ending with "_rsa"
 5. Run the command again, but replace __rsa__ with __ed25519__ (they are different algorithms for encryption)
 6. Copy the created files to the /clients/<client-name> directory on the server  
-    Check our my post on how to set up [SSH Public Key Authentication in Docker Containers](www.crystalruskin.uk/docker-ssh-public-key/) to find out which permissions SSH clients wants for the public key directory and key files
+    Check our my post on how to set up [[Instructions for Docker SSH Public Key Authentication | SSH Public Key Authentication in Docker Containers]] to find out which permissions SSH clients wants for the public key directory and key files
 7. Start the server and check the logs for `** Adding client <ssh-key-file-name>.pub with repo path /backup/<ssh-key-file-name>`
-8. Run the initialization command for the Borg repo  
+8. Run the initialization command for the Borg repo
     `borg init /path/to/repo -e repokey`
 9. Back on the client, ssh into the borg server docker using `ssh <username>@<borg-server-IP>` . Accept the public key. Do this for both the LAN IP and for the Tailscale IP (you can find that IP under the __Machines__ tab on the Tailscale web admin dashboard).
 10. Stop the container and change the __BORG_REPO__ from the local path to the ssh:// path, make sure to use the Tailscale IP to the server! Uncomment out the volume mapping to the local backup directory, since we don't need it no more. Feel free to delete it to save space.
@@ -182,7 +182,7 @@ Now we should have the repo all set up and ready to go! Check the logs for the c
 
 ## A note about Borgmatic
 
-I will probably write a guide on how to set up Borgmatic (since I switched to using it because it can pause / unpause my Docker containers while backing up my appdata directory) But it's essentially the same as Borg. Borgmatic is essentially Borg with a little different command / config structure.
+I've now written a [[Configure Borgmatic & Recover Files | guide on how to set up Borgmatic]] (since I switched to using it because it can pause / unpause my Docker containers while backing up my appdata directory) Borgmatic is essentially Borg with a little different command / config structure.
 
 ---
 
@@ -191,7 +191,7 @@ I will probably write a guide on how to set up Borgmatic (since I switched to us
 By this point we should have a working Borg backup pipeline going through a VPN. Brilliant!  
 Now, I atleast like to add some monitoring to my server. Some uptime monitoring and failure reporting. These containers are running either on my backup server or pinging it.
 
-- [Scrutiny](https://github.com/AnalogJ/scrutiny) - a S.M.A.R.T monitor with a Web UI and notification capabilities to, among other, Discord.
+- [Scrutiny](https://github.com/AnalogJ/scrutiny) - a S.M.A.R.T (disk health) monitor with a Web UI and notification capabilities to, among other, Discord.
 - [Krusader](https://hub.docker.com/r/binhex/arch-krusader) - a great file explorer that every server admin should have
 - [Uptime-Kuma](https://github.com/louislam/uptime-kuma) - a uptime monitor with ability to send messages and warnings to, among many services, Discord
 

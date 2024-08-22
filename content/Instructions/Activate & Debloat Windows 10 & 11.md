@@ -98,7 +98,7 @@ MicrosoftTeams
 This last piece of software is my new favourite. It help you quickly install and remove apps and can modify Windows settings from one easy-to-access place!
 
 1. Open up a Powershell window in Admin
-2. Input `iwr -useb` [`https://christitus.com/win`](https://christitus.com/win) `| iex`
+2. Input `irm "https://christitus.com/win" | iex`
 3. In the __Install__ tab you can choose which apps you want to install or remove. A usefull button is "Get Installed". It checks which apps you have installed and ticks those boxes.
 4. __Tweaks__ is super usefull. I run most of these, but choose the ones you want. DISABLE "MOUSE ACCELERATION" THOUGH! and "Bing search in Start Menu"
 5. One thing I REALLY like in __Features__ is the easy access to the "Set Up Autologin" which I always have on my desktop.
