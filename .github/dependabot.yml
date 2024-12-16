@@ -5,7 +5,20 @@
 
 version: 2
 updates:
+  # Configuration for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "daily"
+    labels:
+      - "automerge"
+      - "dependencies"
+
+  # Configuration for NuGet
+ # - package-ecosystem: "nuget"
+ #   directory: "/"
+ #   schedule:
+ #     interval: "daily"
+ #   labels:
+ #     - "automerge"
+ #     - "dependencies"
