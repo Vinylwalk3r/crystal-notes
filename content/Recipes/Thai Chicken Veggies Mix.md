@@ -1,6 +1,6 @@
 ---
-title: Thai Mix
-date: 2023-08-18 21:34
+title: Thai Chicken Vegetable Mix
+date: 2025-04-11 18:24
 aliases:
   - chicken veggies mix
   - thai chicken vegetables
