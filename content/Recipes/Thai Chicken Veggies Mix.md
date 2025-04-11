@@ -15,7 +15,14 @@ tags:
 ---
 A delicious meal which is both nutritious and delicious! 
 
-![[chickenthaistirfry.jpg|424x255]]
+<img src="_assets/chicken-thai-stir-fry.jpg" id="thaibowl">
+
+<style type="text/css">
+#thaibowl {
+width: 24rem;
+float: right;
+}
+</style>
 
 ### Ingrediens
 **The Greens**
@@ -53,7 +60,8 @@ A delicious meal which is both nutritious and delicious!
 - Let it sit for about 40 minutes.
   
 >[!info] Baking Powder Facts
-The baking powder will give the chicken a rubbery outer skin when we frie it. But don't take to much of it or it will change the taste of the chicken!
+>The baking powder will give the chicken a rubbery outer skin when we frie it. But don't take to
+>much of it or it will change the taste of the chicken!
 
 **In the mean time**
 - Cook up some rice in your preferred way
