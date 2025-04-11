@@ -15,9 +15,9 @@ Maybe [[Activate & Debloat Windows 10 & 11|Activate and Debloat your Windows ins
 
 Or are you more inclined towards browsing some [[Docker Compose Codes]]?
 
-<img src="_assets/gardening-flower-pot.png" id="R-Flowerpot">
-<img src="_assets/flower-garden.png" id="M-Flowers">
-<img src="_assets/wheelbarrow-flower-pot-flowers.png" id="L-WheelBarrow">
+<img src="assets/gardening-flower-pot.png" id="R-Flowerpot">
+<img src="assets/flower-garden.png" id="M-Flowers">
+<img src="assets/wheelbarrow-flower-pot-flowers.png" id="L-WheelBarrow">
 
 <style type="text/css">
 #R-Flowerpot {
