@@ -14,8 +14,7 @@ tags:
   - mix
 ---
 
-![[chicken-thai-stir-fry.jpg|500x500]]
-
+![[chicken-thai-stir-fry.jpg]]
 ### Ingrediens
 **The Greens**
 - Asparagus
