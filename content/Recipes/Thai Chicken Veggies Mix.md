@@ -15,7 +15,7 @@ tags:
 ---
 A delicious meal which is both nutritious and delicious! 
 
-<img src="chicken-thai-stir-fry.jpg" id="thaibowl">
+<img src="_assets/chicken-thai-stir-fry.jpg" id="thaibowl">
 
 <style type="text/css">
 #thaibowl {

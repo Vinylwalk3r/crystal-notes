@@ -15,7 +15,7 @@ tags:
 ---
 A Mexican classic that works well any day of the week and is easy to prepare. 
 
-<img src="chili-con-carne.jpg" id="chilibowl">
+<img src="_assets/chili-con-carne.jpg" id="chilibowl">
 
 <style type="text/css">
 #chilibowl {
