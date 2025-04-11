@@ -14,7 +14,7 @@ tags:
   - mix
 ---
 
-![[chicken-thai-stir-fry.jpg]]
+![[chicken-thai-stir-fry.jpg|500x500]]
 
 ### Ingrediens
 **The Greens**
