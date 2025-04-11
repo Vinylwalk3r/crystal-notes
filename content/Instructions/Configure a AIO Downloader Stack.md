@@ -20,7 +20,7 @@ tags:
   - transmission
   - vpn
 ---
-This guide will show you how to set up and configure a docker stack that will download all sorts of media through a vpn and be able to take requests from a Discord bot we will set up.
+This guide will show you how to set up and configure a Docker stack that will download all sorts of media through a vpn and be able to take requests from a Discord bot we will set up.
 
 You can find the compose codes necessary for setting this up yourself below
 
