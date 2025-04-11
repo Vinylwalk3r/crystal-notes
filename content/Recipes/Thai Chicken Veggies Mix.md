@@ -13,8 +13,8 @@ tags:
   - sauce
   - mix
 ---
-![[chicken-thai-stir-fry.jpg]]
 
+![[chicken-thai-stir-fry.jpg]]
 
 ### Ingrediens
 **The Greens**
