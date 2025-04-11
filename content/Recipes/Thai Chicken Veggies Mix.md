@@ -13,8 +13,9 @@ tags:
   - sauce
   - mix
 ---
+A delicious meal which is both nutritious and delicious! 
 
-![[chicken-thai-stir-fry.jpg]]
+![[chickenthaistirfry.jpg|424x255]]
 
 ### Ingrediens
 **The Greens**
@@ -23,7 +24,7 @@ tags:
 - Bambu Shoots
 - Broccoli
 - Green Peas
-  
+
 **Meat**
 - Chicken Fillet
 
