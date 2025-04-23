@@ -10,10 +10,10 @@ updates:
       - "dependencies"
 
   # Configuration for NuGet
- # - package-ecosystem: "nuget"
- #   directory: "/"
- #   schedule:
- #     interval: "daily"
- #   labels:
- #     - "automerge"
- #     - "dependencies"
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "automerge"
+      - "dependencies"
