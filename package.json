@@ -62,7 +62,7 @@
     "mdast-util-to-string": "^4.0.0",
     "micromorph": "^0.4.5",
     "pixi.js": "^8.10.2",
-    "preact": "^10.25.4",
+    "preact": "^10.26.9",
     "preact-render-to-string": "^6.5.13",
     "pretty-bytes": "^7.0.0",
     "pretty-time": "^1.1.0",
