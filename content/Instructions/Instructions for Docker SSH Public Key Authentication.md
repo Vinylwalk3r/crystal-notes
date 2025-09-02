@@ -18,7 +18,7 @@ tags:
   - instruction
 ---
  
-In this guide, I'll walk you through how to set up an SSH connection between a client and server Docker container on different hosts and enable Public Key Authentication between them.
+In this guide, I'll walk you through how to set up a SSH connection between a client and server Docker container on different hosts and enable Public Key Authentication between them.
 
 ### SSH Public Key Auth for Docker Containers
 

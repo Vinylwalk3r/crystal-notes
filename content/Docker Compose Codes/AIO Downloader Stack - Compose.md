@@ -31,7 +31,7 @@ tags:
 
 A supplementary guide for how to configure these applications are available below:
 
-[[Configure a Complete Downloader Stack]]
+[[Configure a AIO Downloader Stack]]
 
 I you want to use any of these codes without the VPN, just remove this and it will work:
 
@@ -46,7 +46,7 @@ depends_on:
 ### [GluetunVPN](https://github.com/qdm12/gluetun)
 
 The backbone of the stack. All the traffic from the other applications will tunnel through this one. The settings you want to edit are the ones in "{}" (OpenVPN and Wireguard).  
-If you want to add other applications through the VPN, add ports to `ports` and `FIREWALL_INPUT_PORTS`. Then change the "network mode" in the new containers to `container:GluetunVPN` .
+If you want to add other applications through the VPN, add ports to `ports` and `FIREWALL_INPUT_PORTS`. Then change the "network mode" in the new container to `container:GluetunVPN` .
 
 ```yaml
 version: "3"
@@ -112,7 +112,7 @@ I've included the paths for the backup directory in the *arr containers. If you 
 
 ### [Prowlarr](https://hotio.dev/containers/prowlarr/)
 
-Torrent monitor using RSS feeds. Only change `path/to/appdata` to your appdata folder. I kept the ports just in case, but when using GluetunVPN they are not necessary.
+Torrent monitor using RRS feeds. Only change `path/to/appdata` to your appdata folder. I kept the ports just in case, but when using GluetunVPN they are not necessary.
 
 ```yaml
  prowlarr:
@@ -133,20 +133,6 @@ Torrent monitor using RSS feeds. Only change `path/to/appdata` to your appdata f
 #    ports:
 #      - 9696:9696
     restart: unless-stopped
-```
-
-### [Huntarr](https://github.com/plexguide/Huntarr.io)
-A nifty little search helper for Sonarr, Radarr and Readarr. Huntarr will randomly (or sequentally) order a search for x number of missing episodes or movies at set intervals. 
-
-```yaml
-  huntarr:
-    container_name: Huntarr
-    network_mode: container:GluetunVPN
-    environment:
-      - TZ=Europe/Stockholm
-    volumes:
-      - /path/to/appdata/Huntarr:/config:rw
-    image: huntarr/huntarr:latest
 ```
 
 ### [Sonarr](https://hotio.dev/containers/sonarr/)
@@ -229,7 +215,7 @@ Searches for music to download and manages local music files.
 
 ### [Readarr](https://hotio.dev/containers/readarr/)
 
-Manages and searches for books and audiobooks to download.
+Manages and searches for books and comics to download.
 
 ```yaml
  readarr:
@@ -277,24 +263,6 @@ Monitors your media library and downloads subtitles for your movies and tv shows
     ports:
       - "6767:6767"
     restart: unless-stopped
-```
-
-### [Kapowarr](https://github.com/Casvt/Kapowarr)
-
-Comics and Manga downloader (I've not had any success with this....but if you've tried to find manga, you know what a unstandardized dumpster fire finding stuff is). 
-
-```yaml
-  kapowarr:
-    container_name: kapowarr
-    image: mrcas/kapowarr:latest
-    network_mode: container:GluetunVPN
-    depends_on:
-      GluetunVPN:
-        condition: service_healthy
-    volumes:
-      - /path/to/appdata/kapowarr/db:/app/db
-      - /path/to/downloads/dir/books:/app/temp_downloads
-      - /path/to/data/media:/comics
 ```
 
 ---
@@ -388,10 +356,7 @@ A minimalist and easy to drive Torrent downloader.
 ```
 
 ---
-# Extras
-
 ### [Doplarr](https://github.com/kiranshila/Doplarr)
-
 If you've reached this far, I'm going to give you a little bonus. Every heard of Doplarr? Its a awesome little Discord bot that connects with Sonarr and Radarr and allow you to request media through a Discord server. Here's the code:
 
 ```yaml
@@ -406,25 +371,6 @@ doplarr:
   image: "ghcr.io/kiranshila/doplarr:latest"
 ```
 
-### [Recyclarr](https://github.com/recyclarr/recyclarr)
-
-If you've ever found yourself among [THRaSHs Guides](https://trash-guides.info) and thought "This seems nice but *HOW* am I going to import this into my starr apps?", then your in luck. After some config configurating, your starr apps will be kept up to date with THRaSHs settings without you ever having to think about it again. Set and forget.
-
-```yaml
-  recyclarr:
-    container_name: recyclarr
-    networks:
-      - main-net
-    environment:
-      - TZ=Europe/Stockholm
-      - CRON_SCHEDULE=@daily
-      - RECYCLARR_CREATE_CONFIG=false
-      - volumes:
-      - /path/to/appdata/recyclarr:/config:rw
-    user: 99:100
-    image: ghcr.io/recyclarr/recyclarr:latest
-```
-
 ---
 
 ### Refrences
@@ -435,11 +381,5 @@ If you've ever found yourself among [THRaSHs Guides](https://trash-guides.info) 
 	[https://fleet.linuxserver.io](https://fleet.linuxserver.io)
 - List of containers by Hotio.dev  
 	[https://hotio.dev/containers/autoscan/](https://hotio.dev/containers/autoscan/)
-- Huntarr by Admin9705 on Github
-	 [https://github.com/plexguide/Huntarr.io](https://github.com/plexguide/Huntarr.io)
-- Kapowarr by Casvt on Github
-	 [https://github.com/Casvt/Kapowarr](https://github.com/Casvt/Kapowarr)
-- Doplarr by karanshila on Github page
+- Doplarr by karanshila on Github page  
 	[https://kiranshila.github.io/Doplarr/#/](https://kiranshila.github.io/Doplarr/#/)
-- Recyclarr by rcdailey on Github
-	 [https://github.com/recyclarr/recyclarr](https://github.com/recyclarr/recyclarr)

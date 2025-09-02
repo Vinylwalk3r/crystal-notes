@@ -20,11 +20,11 @@ tags:
   - transmission
   - vpn
 ---
-This guide will show you how to set up and configure a Docker stack that will download all sorts of media through a vpn and be able to take requests from a Discord bot we will set up.
+This guide will show you how to set up and configure a docker stack that will download all sorts of media through a vpn and be able to take requests from a Discord bot we will set up.
 
 You can find the compose codes necessary for setting this up yourself below
 
-[[Complete Downloader Stack - Compose]]
+[[AIO Downloader Stack - Compose]]
 
 ---
 
@@ -42,7 +42,7 @@ This is so that we can utilise __Hardlinking__ (read more about it below) and li
 
 We'll want to choose what kind of media we will be downloading and build our stack from there. Or just go all out and add everything to your stack.
 
-My modified compose codes are available [[Complete Downloader Stack - Compose]].
+My modified compose codes are available [[AIO Downloader Stack - Compose]].
 
 Copy and paste the codes for all the containers your going to want to run into one compose code and change the necessary path variables.
 
@@ -98,8 +98,7 @@ Now, go back to the __Indexers__ tab and click the __Sync App Indexers__ button.
 
 ### Media Management Settings
 
-*Use this with Sonarr and Radarr.*
->[!caution] If you don't find this setting, click __Show Advanced__ in the top bar! 
+Use this with Sonarr and Radarr. If you don't find this setting, click __Show Advanced__ in the top bar!
 
 Tick the box __Use hardlinking instead of copy__. This will reduce the wear on your drives, since Sonarr wont copy the file to the new directory. It will create a hardlink (think of it as a shortcut in Windows) to the file in the new directory, greatly reducing read/writes for the disk.
 
@@ -139,10 +138,10 @@ Some *arr containers allow you to view live logs by going to __System__ -> ****E
 
 Now, this is a fun one. We can deploy a Discord bot that allows us to make movie / tv requests directly from a Text channel and our stack will automatically search, download and organize it for us! Especially useful for shared media libraries.
 
-First, your going to want to deploy the [[Complete Downloader Stack - Compose#Doplarr|Doplarr]] container using the compose codes.
+First, your going to want to deploy the [[AIO Downloader Stack - Compose#Doplarr|Doplarr]] container using the compose codes.
 
 Change the "localhost" in the `Sonarr_URL` and `Radarr_URL` to "127.0.0.1".  
-The `API keys` will you know where to find by now. Scroll up to [[Configure a Complete Downloader Stack#Getting API keys from apps|Getting API keys from apps]] for instructions.  
+The `API keys` will you know where to find by now. Scroll up to [[Configure a AIO Downloader Stack#Getting API keys from apps|Getting API keys from apps]] for instructions.  
 `Discord Token` (Im stealing this straight from Kiranshilas great guide on it. Consider this a backup of their work)
 
 > The first step in configuration is creating the bot in Discord itself.  
