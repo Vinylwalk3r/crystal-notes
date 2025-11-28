@@ -17,7 +17,7 @@ tags:
 ---
 A timeless classic from the forests of Finland. This simple soup requires nothing more that carrots, potatoes and some sausage.
 
-<img src="assets/Finnish Sausage Soup.jpg" id="soup">
+<img src="assets/finnish-sausage-soup.jpg" id="soup">
 
 <style type="text/css">
 #soup {
