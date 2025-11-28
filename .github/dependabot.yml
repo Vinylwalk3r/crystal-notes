@@ -1,20 +1,19 @@
 version: 2
 updates:
+  # Configuration for npm
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-    groups:
-      production-dependencies:
-        applies-to: "version-updates"
-        patterns:
-          - "*"
-  - package-ecosystem: "github-actions"
+      interval: "daily"
+    labels:
+      - "merge"
+      - "dependencies"
+
+  # Configuration for NuGet
+  - package-ecosystem: "nuget"
     directory: "/"
     schedule:
-      interval: "weekly"
-    groups:
-      ci-dependencies:
-        applies-to: "version-updates"
-        patterns:
-          - "*"
+      interval: "daily"
+    labels:
+      - "automerge"
+      - "dependencies"
