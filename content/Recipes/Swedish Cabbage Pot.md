@@ -1,5 +1,5 @@
 ---
-title: Finnish Sausage Soup
+title: Swedish Cabbage Pot
 date: 2025-11-28 20:10
 aliases:
   - cabbage pot
@@ -17,7 +17,7 @@ tags:
 ---
 A taste of the Swedish kitchen. Meat and cabbage all boiled to a fine stew and served with potatoes and lingonberry jam.
 
-<img src="assets/cabbage-pot" id="cabbage">
+<img src="assets/cabbage-pot.jpg" id="cabbage">
 
 <style type="text/css">
 #cabbage {
