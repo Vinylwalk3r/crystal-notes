@@ -18,9 +18,17 @@ tags:
   - 
 ---
 ## Introduction
-If you've ever gotten this irritating popup when your working on a network attached resource:
-![[harmful-files-popup.png]]
-this guide may help you fix it
+
+<img src="assets/harmful-files-popup.png" id="harmful-files">
+
+<style type="text/css">
+#harmful-files {
+width: 35rem;
+float: left;
+}
+</style>
+
+If you've ever gotten that irritating popup when your working on a network attached resource, this guide may help you fix it
 
 ## Explanation 
 What we need to do is to add the URLs or IPs of the devices we're accessing in the list of Local Network Sites. This will make Windows trust the remote resource and not throw this popup in our  faces every time we try to move a file. To do this we will have to add the IPs or URLs into our "Internet Options" window. 
@@ -35,7 +43,14 @@ What we need to do is to add the URLs or IPs of the devices we're accessing in t
 - Click **Close**, then **OK**, then **OK** again.
 - Disconnect, and reconnect the network drive
 
-![[add-IP-to-localnet.png]]
+<img src="assets/add-IP-to-localnet.png" id="ip-localnet">
+
+<style type="text/css">
+#ip-localnet {
+width: 50rem;
+float: left;
+}
+</style>
 
 It might not work for you. It worked for me but it's a hazzle if you have loads of destinations you interact with and have to add a whole  bunch to this list. It's really irritating that Windows can't properly detect LAN IPs as being *inside the LAN* and treating them as such. But alas, it won't and instead give us this irritating (and pointless) warning about "dangerous" files. People will, most likely, just click through it anyways.
 
