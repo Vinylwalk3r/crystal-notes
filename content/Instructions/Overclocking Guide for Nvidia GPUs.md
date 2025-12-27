@@ -1,5 +1,5 @@
 ---
-title: Overclocking Guidefor Nvidia GPUs
+title: Overclocking Guide for Nvidia GPUs
 date: 2024-04-03 12:00
 aliases: 
   - nvidia overclocking
