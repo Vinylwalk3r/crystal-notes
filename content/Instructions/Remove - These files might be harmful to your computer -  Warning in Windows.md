@@ -23,8 +23,8 @@ tags:
 
 <style type="text/css">
 #harmful-files {
-width: 35rem;
-float: left;
+width: 26rem;
+position: static
 }
 </style>
 
@@ -47,8 +47,8 @@ What we need to do is to add the URLs or IPs of the devices we're accessing in t
 
 <style type="text/css">
 #ip-localnet {
-width: 50rem;
-float: left;
+width: 48rem;
+position: static
 }
 </style>
 
