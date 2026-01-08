@@ -40,7 +40,7 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 <img src="assets/dumbdroid_2.jpg" id="phone-table">
 
 <style type="text/css">
-#phone-docks {
+#phone-table{
 width: 25rem;
 float: right;
 }
