@@ -20,7 +20,7 @@ tags:
 <style type="text/css">
 #phone-docks {
 width: 10rem;
-float: left;
+static: center;
 }
 </style>
 
@@ -36,12 +36,12 @@ The phone sits well in my hand and is very lightweight.
 
 Many of my friends "ooh" when I show them the phone, some even wants to buy one for themselves! And the price is great, 1200kr (including shipping!) is *nothing* for a phone nowadays. 
 
-<img src="assets/dumbdroid_1.jpg" id="phone-docks">
+<img src="assets/dumbdroid_2.jpg" id="phone-table">
 
 <style type="text/css">
 #phone-docks {
 width: 21rem;
-float: left;
+float: right;
 }
 </style>
 
@@ -73,3 +73,6 @@ Some of these might be considered nitpicks, others are probably actual bugs
 3. This might be more of a general Android thing than this phone especially but I don't like that the screen (kind of randomly) turns on when I lift the phone. I've dug through the settings but there doesn't seem to be a way to turn this behavior off. 
 4. Speaking of the screen, if I turn the brightness down any lower then around 50%, the backlight goes crazy and starts to flash like a maniac. I'm not versed in screen tech enough to speculate on what's causing it, but I note that enabling the option "Extra Dim" when on around 50% brightness allows it to dim down quite a great amount *without* having to go further down the brightness slider. 
 5. No physical volume buttons
+
+## Links
+- [You can buy the Dumbdroid for yourself here!](https://shop.dumbdroid.eu)
