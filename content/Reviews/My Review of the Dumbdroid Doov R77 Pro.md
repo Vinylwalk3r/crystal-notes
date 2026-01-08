@@ -40,7 +40,7 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 
 <style type="text/css">
 #phone-docks {
-width: 21rem;
+width: 5rem;
 float: right;
 }
 </style>
