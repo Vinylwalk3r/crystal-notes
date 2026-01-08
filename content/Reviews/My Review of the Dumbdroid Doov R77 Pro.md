@@ -21,7 +21,7 @@ tags:
 #phone-docks {
 width: 21rem;
 float: right;
-border: solid;
+border: hidden;
 border-width: 1rem 1rem 1rem 3rem;
 }
 </style>
@@ -46,8 +46,8 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 #phone-table{
 width: 25rem;
 float: right;
-border-style: solid;
-border-width: 1rem 3rem 1rem 1rem;
+border-style: hidden;
+border-width: 1rem 1rem 1rem 3rem;
 }
 </style>
 
