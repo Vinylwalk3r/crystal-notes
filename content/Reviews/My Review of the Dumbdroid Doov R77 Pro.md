@@ -33,6 +33,8 @@ So, when my Oneplus 6Ts replaced screen was on its last legs, I found the Dumbdr
 Since I was part of the release day buyer (or rather a few days after release) it took some time to get mine, but I have no problem with waiting. 
 
 ## Review
+I'm writing this review after having used the phone for about two months.
+
 The setup was easy and I'll admit, I was skeptical if this would be a good phone for me. Since most of us are so used to smart phones, getting used to a physical keyboard can be a relearning curve. I got into it quite quickly, surprised how much my fingers remembered my old Nokia keyboards.
 The phone sits well in my hand and is very lightweight. 
 
@@ -44,9 +46,8 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 #phone-table{
 width: 25rem;
 float: right;
-border: solid;
+border-style: solid;
 border-width: 1rem, 1rem, 1rem, 5rem;
-
 }
 </style>
 
