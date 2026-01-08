@@ -19,7 +19,8 @@ tags:
 
 <style type="text/css">
 #phone-docks {
-width: 26rem;
+width: 21rem;
+float: center;
 position: static;
 }
 </style>
@@ -40,7 +41,7 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 
 <style type="text/css">
 #phone-docks {
-width: 21rem;
+width: 25rem;
 float: right;
 }
 </style>

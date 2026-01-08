@@ -24,7 +24,7 @@ tags:
 <style type="text/css">
 #harmful-files {
 width: 26rem;
-position: static
+position: static;
 }
 </style>
 
