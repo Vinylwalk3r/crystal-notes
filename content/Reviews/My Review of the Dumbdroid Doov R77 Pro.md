@@ -22,7 +22,7 @@ tags:
 width: 21rem;
 float: right;
 border: solid;
-border-width: 1rem 5rem 1rem 1rem;
+border-width: 1rem 1rem 1rem 3rem;
 }
 </style>
 
@@ -47,7 +47,7 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 width: 25rem;
 float: right;
 border-style: solid;
-border-width: 1rem 5rem 1rem 5rem;
+border-width: 1rem 3rem 1rem 1rem;
 }
 </style>
 
