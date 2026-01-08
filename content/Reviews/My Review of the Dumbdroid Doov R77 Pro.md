@@ -20,7 +20,9 @@ tags:
 <style type="text/css">
 #phone-docks {
 width: 21rem;
-float: left;
+float: right;
+border: solid;
+border-width: 1rem, 5rem, 1rem, 1rem;
 }
 </style>
 
@@ -42,8 +44,8 @@ Many of my friends "ooh" when I show them the phone, some even wants to buy one 
 #phone-table{
 width: 25rem;
 float: right;
-border: hidden;
-border-width: 10px;
+border: solid;
+border-width: 1rem, 1rem, 1rem, 5rem;
 
 }
 </style>
