@@ -19,8 +19,8 @@ tags:
 
 <style type="text/css">
 #phone-docks {
-width: 10rem;
-static: center;
+width: 26rem;
+position: static;
 }
 </style>
 
