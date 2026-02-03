@@ -15,7 +15,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "code.crystalruskin.uk",
+    baseUrl: "dg.puffes.xyz",
     ignorePatterns: ["private", "_templates", "_assets", ".obsidian"],
     defaultDateType: "created",
     theme: {
