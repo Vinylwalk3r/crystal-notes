@@ -4,7 +4,7 @@ date: 2026-02-11 23:41
 aliases:
   - jwcs obs setup
   - tournament streamer
-draft: false
+draft: true
 tags:
   - jwcs
   - instruction

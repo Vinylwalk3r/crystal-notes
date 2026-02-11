@@ -1,8 +1,8 @@
 ---
 title: Configuring the AIO Downloader Stack
 date: 2023-11-03 23:41
-aliases: 
-draft: false
+aliases:
+draft: true
 tags:
   - docker
   - instruction
@@ -29,11 +29,11 @@ You can find the compose codes necessary for setting this up yourself below
 ---
 
 Just a quick little something before we begin. I'd advise setting your folder structure for your *arr apps like:
-
+```
 /data/media/<subfolders>  
 /data/torrents/<subfolder>  
 /data/usenet/<subfolders>
-
+```
 This is so that we can utilise __Hardlinking__ (read more about it below) and limit the amounts of read/writes on our disks. And it makes it all clean and simple to look through as well.
 
 ---
