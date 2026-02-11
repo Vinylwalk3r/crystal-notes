@@ -32,8 +32,8 @@ This guide help you set up the JWCS Rocket League streamer setup. It will guide 
 6. From here, you can start OBS and Streamer.Bot using the "shortcuts" I've put there. Go ahead and launch OBS first.
 
 # OBS
->[!Warning]- Some Files are Missing!
-If you see this popup,  just click the *Search Directory...* button, then navigate to and select this folder: `Rocket League Tournament Assets` . Let it search and it will find everything (and then CRASH!...yes, it crashes for me **EVERY TIME** when I do this....idk why...) ![[obs-popup-1.png|700]]
+>[!Warning]- Some Files are Missing since you last used OBS! ![[obs-popup-1.png|700]]
+If you see this popup,  just click the *Search Directory...* button, then navigate to and select this folder: `Rocket League Tournament Assets` . Let it search and it will find everything (and then CRASH!...yes, it crashes for me **EVERY TIME** when I do this....idk why...) 
 
 ## -- Startup Check --
 After you've started OBS and fixed any missing files, we shall go through and make sure that all the scenes look good. If all scenes pass inspection and doesn't report any errors, we continue.
