@@ -6,12 +6,12 @@ aliases:
 draft: false
 tags:
   - docker
-  - compose codes
   - borg
   - client
   - backup
   - ssh
   - repository
+  - compose-codes
 ---
 ## Docker Compose
 

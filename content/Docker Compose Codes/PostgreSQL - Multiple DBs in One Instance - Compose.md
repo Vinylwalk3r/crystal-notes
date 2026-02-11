@@ -6,7 +6,6 @@ aliases:
 draft: false
 tags:
   - docker
-  - compose codes
   - postgre
   - sql
   - multiple
@@ -16,6 +15,7 @@ tags:
   - instance
   - script
   - bash
+  - compose-codes
 ---
  Having multiple DBs served from one instance has pros and cons. The pros is that it's all centralized and is easier to run. The problems are that the performance when accessing can be very up-n-down. Especially if your hosting databases for, lets say Davinci Resolve. I'd recommend giving programs like Resolve its own Postgres instance.
 

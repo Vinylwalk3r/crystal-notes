@@ -6,12 +6,12 @@ aliases:
 draft: false
 tags:
   - docker
-  - compose codes
   - scrutiny
   - disk
   - health
   - monitoring
   - alerting
+  - compose-codes
 ---
  Scrutiny is a great S.M.A.R.T checker. It both logs the temps and status of all your drives and can also notify to a number of different services if it detects drive degradation.
 

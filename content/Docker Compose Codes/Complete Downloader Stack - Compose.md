@@ -25,6 +25,7 @@ tags:
   - discord
   - doplarr
   - bot
+  - compose-codes
 ---
  The Docker compose codes below are a build-your-own-stack collection of already configured codes ready to be assembled to a stack or (with slight modifications) used independently.
 
