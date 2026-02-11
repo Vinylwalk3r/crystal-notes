@@ -20,6 +20,8 @@ tags:
   - transmission
   - vpn
 ---
+# Intro
+
 This guide will show you how to set up and configure a Docker stack that will download all sorts of media through a vpn and be able to take requests from a Discord bot we will set up.
 
 You can find the compose codes necessary for setting this up yourself below
@@ -38,7 +40,7 @@ This is so that we can utilise __Hardlinking__ (read more about it below) and li
 
 ---
 
-## Building the Stack
+# Building the Stack
 
 We'll want to choose what kind of media we will be downloading and build our stack from there. Or just go all out and add everything to your stack.
 
@@ -48,11 +50,11 @@ Copy and paste the codes for all the containers your going to want to run into o
 
 The tricky ones are the OpenVPN and Wireguard settings for GluetunVPN. Since qdm12 has done such a awesome job of explaining the process of configuring Gluetun for different VPN providers, I'll just be linking to his wiki [HERE](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers). Please refer to it for guidance on setting up Gluetun with your VPN of choice. I'm using Mullvard.
 
-Next, spin up the stack. This is done a little differently in [Portainer](https://docs.portainer.io/user/docker/stacks/add), Unraids [Docker Compose plugin](https://docs.ibracorp.io/docker-compose/docker-compose-for-unraid) or docker run commands. Please refer to the relevant documentation for how to deploy Docker Compose codes in your environment.
+Next, spin up the stack. This is done a little differently in [Portainer](https://docs.portainer.io/user/docker/stacks/add), Unraids [Docker Compose plugin](https://docs.ibracorp.io/docker-compose/docker-compose-for-unraid) or docker run commands. Please refer to the relevant documentation for how to deploy Docker Compose codes in your environment.I will be running it using `docker compose up -d`
 
 ---
 
-## Configuring the Apps
+# Configuring the Apps
 
 #### Adding indexers to Prowlarr
 
@@ -75,23 +77,24 @@ In the two __... Server__ fields, we will put [`http://127.0.0.1:`](http://127.0
 - Prowlarr - 9696
 - Sonarr - 8989
 - Radarr - 7878
-- Readarr - 8787
+- Readarr / Bookshelf - 8787
 - Lidarr - 8686
 - Bazarr - 6767
+- Cleanuparr - 11011
 
 ---
 
-## General App Settings
+# General App Settings
 
 ### Adding Downloaders
 
 This works the same for all the *arr apps.  
 Go to __Settings__ -> __Download Clients__ and click on the plus button. In the __Host__ field, put [`http://127.0.0.1`](http://127.0.0.1) since we're accessing it from behind the VPN. Add the __Port__:
-
-- Deluge - 8112
-- QBittorrent - 8180
-- Transmission - 9091
-
+```
+Deluge - 8112
+QBittorrent - 8180
+Transmission - 9091
+```
 Add the password for the login to the download clients Web UI as well. In the __Category__ field, I recommend putting the name of the app that is making the request (Prowlarr, Sonarr, etc). If your using QBittorrent, we're going to be able to use that Category later.
 
 Now, go back to the __Indexers__ tab and click the __Sync App Indexers__ button. The indexers you've set up in Prowlarr will now be synced to all your *arr apps!
@@ -99,7 +102,7 @@ Now, go back to the __Indexers__ tab and click the __Sync App Indexers__ button.
 ### Media Management Settings
 
 *Use this with Sonarr and Radarr.*
->[!caution] If you don't find this setting, click __Show Advanced__ in the top bar! 
+>[!caution] If you don't find this setting, click "__Show Advanced__" in the top bar! 
 
 Tick the box __Use hardlinking instead of copy__. This will reduce the wear on your drives, since Sonarr wont copy the file to the new directory. It will create a hardlink (think of it as a shortcut in Windows) to the file in the new directory, greatly reducing read/writes for the disk.
 

@@ -45,70 +45,80 @@ depends_on:
 
 ### [GluetunVPN](https://github.com/qdm12/gluetun)
 
-The backbone of the stack. All the traffic from the other applications will tunnel through this one. The settings you want to edit are the ones in "{}" (OpenVPN and Wireguard).  
-If you want to add other applications through the VPN, add ports to `ports` and `FIREWALL_INPUT_PORTS`. Then change the "network mode" in the new containers to `container:GluetunVPN` .
+The backbone of the stack. All the traffic from the other applications will tunnel through this one. The settings you want to edit are the ones in "<value>" (OpenVPN or Wireguard).  
+If you want to add other applications through the VPN, add their ports to the `ports` and `FIREWALL_INPUT_PORTS` variables. Then change the "network mode" in the new containers to `container:GluetunVPN` .
 
 ```yaml
-version: "3"
-services:
-
-  GluetunVPN:
-    image: qmcgaw/gluetun:latest
-    container_name: GluetunVPN
-    network_mode: bridge
-    # line above must be uncommented to allow external containers to connect. See https://github.com/qdm12/gluetun/wiki/Connect-a-container-to-gluetun#external-container-to-gluetun
-    cap_add:
-    - NET_ADMIN
-    devices:
-    - /dev/net/tun:/dev/net/tun
-    ports:
-    - 8310:8000/tcp # HTTP Server
-    - 8888:8888/tcp # HTTP proxy
-    - 8388:8388/tcp # Shadowsocks
-    - 8388:8388/udp # Shadowsocks
-    #- 9696:9696 # Prowlarr
-    #- 8989:8989 # Sonarr
-    #- 7878:7878 # Radarr
-    #- 8686:8686 # Lidarr
-    #- 8787:8787 # Readarr
-    #- 6767:6767 # Bazarr
-    #- 8112:8112 # Deluge
-    #- 8180:8180 # QBittorrent
-    #- 9091:9091 # Transmission
-    volumes:
-    - /path/to/appdata/gluetun:/gluetun
-    environment:
-    # See https://github.com/qdm12/gluetun/wiki
-    - VPN_SERVICE_PROVIDER=mullvad
-    - VPN_TYPE=openvpn
-    # OpenVPN:
-    - OPENVPN_USER={YOUR-USERNAME-HERE} 
-    - OPENVPN_VERBOSITY=2
-    - SERVER_COUNTRIES={COUNTRY-OF-VPN-SERVER} 
-    - SERVER_CITIES={CITYNAME-OF-VPN-SERVER} 
-     # Wireguard:
-    - WIREGUARD_PRIVATE_KEY={YOUR-WIREGUARD-KEY-HERE} 
-    - WIREGUARD_ADDRESSES={ADRESS-LIKE 10.10.10.10/32}
-    # Timezone for accurate log times
-    - TZ=Europe/Stockholm
-    # Server list updater. See https://github.com/qdm12/gluetun/wiki/Updating-Servers#periodic-update
-    - UPDATER_PERIOD=24h
-    - UPDATER_VPN_SERVICE_PROVIDERS=
-    #Remove the Firewall Input Ports that you wont use!
-    - FIREWALL_INPUT_PORTS=9696,8989,7878,8686,8787,6767,8180,9091,8112 # Prowlarr, Sonarr, Radarr, Lidarr, Readarr, Bazarr, QBittorrent, Transmission, Deluge
-    # DOT (DNS over TLS) for Outbound
-    - DOT=on
-    - DOT_PROVIDERS= cloudflare
-    - DOT_PRIVATE_ADRESS= 127.0.0.1/8,10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,::1/128,fc00::/7,fe80::/10,::ffff:7f00:1/104,::ffff:a00:0/104,::ffff:a9fe:0/112,::ffff:ac10:0/108,::ffff:c0a8:0/112
-    - DOT_CACHING=on
-    - BLOCK_MALICIOUS=on
+  # Gluetun
+  GluetunVPN:
+    image: qmcgaw/gluetun
+    container_name: GluetunVPN
+    network_mode: bridge
+    # line above must be uncommented to allow external containers to connect. See https://github.com/qdm12/gluetun/wiki/Connect-a-container-to-gluetun#external-container-to-gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8310:8000/tcp # HTTP Server
+      - 8888:8888/tcp # HTTP proxy
+#      - 8388:8388/tcp # Shadowsocks
+#      - 8388:8388/udp # Shadowsocks
+#      - 51820:51820 # Wireguard Server
+      - 9696:9696 # Prowlarr
+      - 9705:9705 # Huntarr
+      - 8989:8989 # Sonarr
+      - 7878:7878 # Radarr
+      - 8686:8686 # Lidarr
+      - 8787:8787 # Readarr
+#      - 5656:5656 # Kapowarr
+      - 6767:6767 # Bazarr
+      - 8180:8180 # QBittorrent
+#       - 8112:8112 # Deluge
+      - 11011:11011 # Cleanuparr
+    volumes:
+      - ./gluetunvpn_config:/gluetun
+    environment:
+      # See https://github.com/qdm12/gluetun/wiki
+      - VPN_SERVICE_PROVIDER=<provider-name>
+      - VPN_TYPE=<wireguard/openvpn>
+      # Wireguard:
+      - WIREGUARD_PRIVATE_KEY=<auth-key-from-vpn-provider>
+      - WIREGUARD_ADDRESSES=<ip-from-your-VPN-provider>
+      - SERVER_COUNTRIES=Sweden
+      - WIREGUARD_MTU=1500
+      # Updater
+      - UPDATER_PERIOD=24h
+      - UPDATER_VPN_SERVICE_PROVIDERS=<provider-name>
+      # Firewall
+      - FIREWALL_INPUT_PORTS=9696,8989,7878,8686,8787,6767,8180 # Prowlarr, Sonarr, Radarr, Lidarr, Bookshelf, Bazarr, QBittorrent
+      # DNS
+      - DNS_SERVER=on
+      - DNS_UPSTREAM_RESOLVERS=cloudflare
+      - DNS_UPSTREAM_RESOLVER_TYPE=dot
+      - DNS_CACHING=on
+      - BLOCK_MALICIOUS=on
+      # Other
+      - TZ=Europe/Stockholm
 ```
 
 ---
 
 # Starr Containers
 
-I've included the paths for the backup directory in the *arr containers. If you don't want custom backup paths, just comment the line out. Their useful for centralized backup solutions, such as *arr containers -> backup directory -> rclone -> cloud directory / remote drive.
+These compose codes are easy enough to set up. Just change the `/path/to/data` to where you store your media and, if you want to use it, the `/path/to/backup` to somewhere where you can easily back them up.
+ If you don't want custom backup paths, just comment the line out. They are  useful for centralized backup solutions, such as:
+
+`*arr containers -> backup directory -> rclone -> cloud directory / remote drive`
+
+
+>[!tip]- Custom Themes in *arr Dashboards!
+>If you want to use custom themes in the *arr apps, paste this Docker Mods code in the Environment variables section:
+>```
+>- DOCKER_MODS=ghcr.io/themepark-dev/theme.park:<name-of-*arr-app>
+>- TP_THEME=hotpink
+>- TP_COMMUNITY_THEME=false
+>  ```
 
 ### [Prowlarr](https://hotio.dev/containers/prowlarr/)
 
@@ -136,7 +146,8 @@ Torrent monitor using RSS feeds. Only change `path/to/appdata` to your appdata f
 ```
 
 ### [Huntarr](https://github.com/plexguide/Huntarr.io)
-A nifty little search helper for Sonarr, Radarr and Readarr. Huntarr will randomly (or sequentally) order a search for x number of missing episodes or movies at set intervals. 
+A nifty little search helper for Sonarr, Radarr and Readarr. Huntarr will randomly (or sequentially) order a search for x number of missing episodes or movies at set intervals. 
+Just remember to go into the webui and configure it's connections to the *arr apps.
 
 ```yaml
   huntarr:
@@ -151,28 +162,30 @@ A nifty little search helper for Sonarr, Radarr and Readarr. Huntarr will random
 
 ### [Sonarr](https://hotio.dev/containers/sonarr/)
 
-The TV series monitor and download manager that needs no introduction. Only things to change is `path/to/appdata` to point to your appdata folder and `/path/to/data` to where you store your media.
+The TV series monitor and download manager that needs no introduction.
 
 ```yaml
- sonarr:
-    image: ghcr.io/hotio/sonarr:latest
-    container_name: sonarr
-    network_mode: container:GluetunVPN
-    depends_on:
-      GluetunVPN:
-         condition: service_healthy
-    environment:
-      - PUID=99
-      - PGID=100
-      - UMASK=022
-      - TZ=Europe/Stockholm
-    volumes:
-      - /path/to/appdata/sonarr:/config
-      - /path/to/data/:/data #optional
-      - /path/to/backup/docker/sonarr:/config/Backups
-#    ports:
-#      - 8989:8989
-    restart: unless-stopped
+  # Sonarr
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    #    image: ghcr.io/hotio/sonarr:latest
+    container_name: sonarr
+    network_mode: container:GluetunVPN
+    depends_on:
+      GluetunVPN:
+        condition: service_healthy
+    environment:
+      - PUID=99
+      - PGID=100
+      - UMASK=022
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./sonarr_config:/config
+      - /path/to/data/:/data #optional
+      - /path/to/backup/sonarr:/config/Backups
+    #    ports:
+    #      - 8989:8989
+    restart: unless-stopped
 ```
 
 ### [Radarr](https://hotio.dev/containers/radarr/)
@@ -180,25 +193,26 @@ The TV series monitor and download manager that needs no introduction. Only thin
 Like Sonarr but for movies. Same things to change as Sonarr.
 
 ```yaml
- radarr:
-    image: ghcr.io/hotio/radarr:latest
-    container_name: radarr
-    network_mode: container:GluetunVPN
-    depends_on:
-      GluetunVPN:
-         condition: service_healthy
-    environment:
-      - PUID=99
-      - PGID=100
-      - UMASK=022
-      - TZ=Europe/Stockholm
-    volumes:
-      - /path/to/appdata/radarr:/config
-      - /path/to/data/:/data #optional
-      - /path/to/backup/docker/radarr:/config/Backups
-#    ports:
-#      - 7878:7878
-    restart: unless-stopped
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    #    image: ghcr.io/hotio/radarr:latest
+    container_name: radarr
+    network_mode: container:GluetunVPN
+    depends_on:
+      GluetunVPN:
+        condition: service_healthy
+    environment:
+      - PUID=99
+      - PGID=100
+      - UMASK=022
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./radarr_config:/config
+      - /path/to/data:/data #optional
+      - /path/to/backup/radarr:/config/Backups
+    #    ports:
+    #      - 7878:7878
+    restart: unless-stopped
 ```
 
 ### [Lidarr](https://hotio.dev/containers/lidarr/)
@@ -206,51 +220,54 @@ Like Sonarr but for movies. Same things to change as Sonarr.
 Searches for music to download and manages local music files.
 
 ```yaml
- lidarr:
-    container_name: lidarr
-    image: ghcr.io/hotio/lidarr
-    network_mode: container:GluetunVPN
-    depends_on:
-      GluetunVPN:
-         condition: service_healthy
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Etc/UTC
-    volumes:
-      - /path/to/appdata:/config
-      - /path/to/data:/data
-      - /path/to/backup/docker/lidarr:/config/Backups
-#    ports:
-#      - "8686:8686"
-    restart: unless-stopped
+  # Lidarr
+  lidarr:
+    image: ghcr.io/hotio/lidarr:pr-plugins
+    # image: lscr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    network_mode: container:GluetunVPN
+    depends_on:
+      GluetunVPN:
+        condition: service_healthy
+    environment:
+      - PUID=99
+      - PGID=100
+      - UMASK=022
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./lidarr_config:/config
+      - /path/to/backup/lidarr:/config/Backups
+      - /path/to/data:/data
+    # ports:
+    #    - 8686:8686
+    restart: unless-stopped
 ```
 
-### [Readarr](https://hotio.dev/containers/readarr/)
+### [Readarr / Bookshelf](https://hotio.dev/containers/readarr/)
 
 Manages and searches for books and audiobooks to download.
+>[!warning] Since Readarr is as good as dead, I've moved over to Bookshelf. It's a drop in replacement that works just like Readarr.
 
 ```yaml
- readarr:
-    container_name: readarr
-    image: ghcr.io/hotio/readarr
-    network_mode: container:GluetunVPN
-    depends_on:
-      GluetunVPN:
-         condition: service_healthy
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Etc/UTC
-    volumes:
-      - /path/to/appdata:/config
-      - /path/to/data:/data
-      - /path/to/backup/docker/readarr:/config/Backups
-#    ports:
-#      - "8787:8787"
-    restart: unless-stopped
+  # Bookshelf
+  bookshelf:
+    image: ghcr.io/pennydreadful/bookshelf:hardcover
+    container_name: bookshelf
+    network_mode: container:GluetunVPN
+    depends_on:
+      GluetunVPN:
+        condition: service_healthy
+    environment:
+      - PUID=99
+      - PGID=100
+      - UMASK=022
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./bookshelf_config:/config
+      - /path/to/backup/dir/bookshelf:/config/Backups
+      - /path/to/data:/data
+    #  ports:
+    #    - 8787:8787
 ```
 
 ### [Bazarr](https://hotio.dev/containers/bazarr/)
@@ -258,30 +275,33 @@ Manages and searches for books and audiobooks to download.
 Monitors your media library and downloads subtitles for your movies and tv shows. It really hates being behind a VPN, that's why I chose bridged for its networking.
 
 ```yaml
- bazarr:
-    container_name: bazarr
-    image: ghcr.io/hotio/bazarr
-    network_mode: bridged
-    depends_on:
-      GluetunVPN:
-         condition: service_healthy
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - UMASK=002
-      - TZ=Etc/UTC
-    volumes:
-      - /path/to/appdata/bazarr:/config
-      - /path/to/data:/data
-      - /path/to/backup/docker/bazarr:/config/backup
-    ports:
-      - "6767:6767"
-    restart: unless-stopped
+  # Bazarr
+  bazarr:
+    image: ghcr.io/hotio/bazarr:latest
+    #    image: ghcr.io/hotio/bazarr:latest
+    container_name: bazarr
+    network_mode: container:GluetunVPN
+    depends_on:
+      GluetunVPN:
+        condition: service_healthy
+    environment:
+      - PUID=99
+      - PGID=100
+      - UMASK=022
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./bazarr_config:/config
+      - /path/to/data/data:/data
+      - /path/to/backup/bazarr:/config/Backups
+    #    ports:
+    #      - "6767:6767"
+    restart: unless-stopped
 ```
 
 ### [Kapowarr](https://github.com/Casvt/Kapowarr)
 
-Comics and Manga downloader (I've not had any success with this....but if you've tried to find manga, you know what a unstandardized dumpster fire finding stuff is). 
+Comics and Manga downloader 
+>[!info] I've not had any success with this....but if you've tried to find manga, you know what a unstandardized dumpster fire finding stuff is). 
 
 ```yaml
   kapowarr:
@@ -390,6 +410,31 @@ A minimalist and easy to drive Torrent downloader.
 ---
 # Extras
 
+### [Cleanuparr](https://github.com/Cleanuparr/Cleanuparr)
+
+A lifesaver when you've got Huntarr all set up and working. Cleanuparr blocks malicious files and acts as the janitor on your download queue. Stalled or way to slow downloads cluttering up your downloader? Cleanuparr get rid of them and adds them to the *arr apps blocklist. It also cleans finished downloads that have seeded for a give time or reached a certain ratio!
+
+```
+  # Cleanuperr
+  cleanuparr:
+    container_name: cleanuparr
+    image: ghcr.io/cleanuparr/cleanuparr:latest
+    restart: unless-stopped
+    network_mode: container:GluetunVPN
+    #    ports:
+    #      - 11011:11011
+    volumes:
+      - ./cleanuparr_config:/config
+      # if you want persistent logs
+      - ./cleanuparr_config/logs:/var/logs
+      # if you want to ignore certain downloads from being processed
+      - ./cleanuparr_config/ignored.txt:/ignored.txt
+      # if you're using cross-seed and the hardlinks functionality
+      - /path/to/torrents:/downloads
+    environment:
+      - TZ=Europe/Stockholm
+```
+
 ### [Doplarr](https://github.com/kiranshila/Doplarr)
 
 If you've reached this far, I'm going to give you a little bonus. Every heard of Doplarr? Its a awesome little Discord bot that connects with Sonarr and Radarr and allow you to request media through a Discord server. Here's the code:
@@ -439,6 +484,8 @@ If you've ever found yourself among [THRaSHs Guides](https://trash-guides.info) 
 	 [https://github.com/plexguide/Huntarr.io](https://github.com/plexguide/Huntarr.io)
 - Kapowarr by Casvt on Github
 	 [https://github.com/Casvt/Kapowarr](https://github.com/Casvt/Kapowarr)
+- Cleanuparr by Flaminel on Github
+     [https://github.com/Cleanuparr/Cleanuparr](https://github.com/Cleanuparr/Cleanuparr)
 - Doplarr by karanshila on Github page
 	[https://kiranshila.github.io/Doplarr/#/](https://kiranshila.github.io/Doplarr/#/)
 - Recyclarr by rcdailey on Github
