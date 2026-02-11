@@ -30,7 +30,7 @@ You can find the compose codes necessary for setting this up yourself below
 
 ---
 
-Just a quick little something before we begin. I'd advise setting your folder structure for your *arr apps like:
+Just a quick little something before we begin. I'd advise setting your folder structure for your *arr apps to this:
 ```
 /data/media/<subfolders>  
 /data/torrents/<subfolder>  
@@ -75,10 +75,12 @@ In the two __... Server__ fields, we will put [`http://127.0.0.1:`](http://127.0
 ##### Ports:
 
 - Prowlarr - 9696
+- Huntarr - 9705
 - Sonarr - 8989
 - Radarr - 7878
 - Readarr / Bookshelf - 8787
 - Lidarr - 8686
+- Kapowarr - 5656
 - Bazarr - 6767
 - Cleanuparr - 11011
 
@@ -137,7 +139,24 @@ Backups can be viewed, downloaded or restored from __System__ -> ****Backup****
 Some *arr containers allow you to view live logs by going to __System__ -> ****Events****
 
 ---
+## Configuring Cleanuparr & Huntarr
 
+#### Huntarr
+After logging in to the webui, got to **Apps** and set up all your apps as necessary.
+Then, go into **Settings** and **Notifications** and set up Apprise notifs as you wish. I use Discord so my URL looks like this: 
+`discord://webhook_ID/webhook_Token`
+Link to [Apprises Github](https://github.com/caronc/apprise) for documentation on how to configure your notifications and examples.
+
+#### Cleanuparr
+After entering the webui, go to **Media Apps** and configure them. Remember to add the login details for your **Download Clients** (especially qBittorrent, even if you've disabled local auth in qBitts webui!).
+Then, go into **Settings** and configure *Queue Cleaner*. I won't go over every setting here, but I will give these tips:
+```
+Run Schedule = run every 3 hours
+Maximum Time (hours) = 168 (one week)
+Max Ratio = 1
+```
+
+---
 ## Adding Discord Requests
 
 Now, this is a fun one. We can deploy a Discord bot that allows us to make movie / tv requests directly from a Text channel and our stack will automatically search, download and organize it for us! Especially useful for shared media libraries.
@@ -164,3 +183,5 @@ Now it should work and be ready for all your media requesting needs!
 - VPN providers config guides by qdm12 on GluetunVPN Wiki - [https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers](https://github.com/qdm12/gluetun-wiki/tree/main/setup/providers)
 - *arrs info on Servarr Wiki - [https://wiki.servarr.com](https://wiki.servarr.com)
 - Doplarr configuration by Kiranshila on Github.io page - [https://kiranshila.github.io/Doplarr/#/configuration](https://kiranshila.github.io/Doplarr/#/configuration)
+- Apprise by caronc on Github -
+  https://github.com/caronc/apprise
