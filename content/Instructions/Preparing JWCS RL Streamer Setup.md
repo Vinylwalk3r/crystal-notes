@@ -185,7 +185,7 @@ Thats the BakkesMod DLL injector. Let it be open and start Rocket League. The sm
 
 Now, press F3 and this window should pop up:
 
-![[customui-preset-dropdown.png|720]]
+![[customui-preset-dropdown.png|500]]
 
 Thats the CustomUI management window. We'll get to know this little window *VERY* well during the stream.
 
