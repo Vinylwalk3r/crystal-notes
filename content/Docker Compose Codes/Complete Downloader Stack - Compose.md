@@ -1,5 +1,5 @@
 ---
-title: AIO Downloader Stack - Compose
+title: Complete Downloader Stack - Compose
 date: 2023-11-01 23:05
 aliases:
   - arr stack
@@ -7,7 +7,6 @@ aliases:
 draft: false
 tags:
   - docker
-  - compose codes
   - downloader
   - gluetunvpn
   - vpn

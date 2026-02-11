@@ -1,8 +1,9 @@
 ---
-title: Configuring the AIO Downloader Stack
+title: Configure a Complete Downloader Stack
 date: 2023-11-03 23:41
 aliases:
-draft: true
+  - configure aio downloader stack
+draft: false
 tags:
   - docker
   - instruction
@@ -16,7 +17,6 @@ tags:
   - radarr
   - notifications
   - qbittorrent
-  - deluge
   - transmission
   - vpn
 ---
