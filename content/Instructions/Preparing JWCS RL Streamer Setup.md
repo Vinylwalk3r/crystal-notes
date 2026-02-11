@@ -178,11 +178,15 @@ After your down, finally, we have to move our custom overlays into the *Presets*
 
 #### Startup
 Okay, so now CustomUI is installed. Lets see if it's working. Press the *Windows* key and type "bakkesmod". Press *Enter* and this small window should open:
+
 ![[bakkesmod-injector.png]]
- Thats the BakkesMod DLL injector. Let it be open and start Rocket League. The small windows should say "Injecting" followed by what you see in the image. That means that it's working.
+
+Thats the BakkesMod DLL injector. Let it be open and start Rocket League. The small windows should say "Injecting" followed by what you see in the image. That means that it's working.
 
 Now, press F3 and this window should pop up:
-![[customui-preset-dropdown.png]]
+
+![[customui-preset-dropdown.png|720]]
+
 Thats the CustomUI management window. We'll get to know this little window *VERY* well during the stream.
 
 We will be using *Choose a Preset* and *Edit Position / Size* A LOT.
