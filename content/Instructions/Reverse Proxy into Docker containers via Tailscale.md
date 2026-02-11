@@ -13,10 +13,10 @@ tags:
   - docker
   - remote
   - access
-  - peer to peer
   - cloudflare
   - cname
-  - a record
+  - peer-2-peer
+  - a-record
 ---
 Having a reverse proxy in a Tailscale network can be very useful of you have a lot of services and have a hard time remembering the ports for all your services. It also comes with the added bonus of removing the pesky "This site is not secure" warning since we'll be generating signed certificates for our domain.
 

@@ -1,7 +1,7 @@
 ---
 title: Overclocking Guide for Nvidia GPUs
 date: 2024-04-03 12:00
-aliases: 
+aliases:
   - nvidia overclocking
   - gpu overclocking
   - oc:ing gpu
@@ -9,17 +9,13 @@ draft: false
 tags:
   - overclocking
   - undervolting
-  - core clocks
   - hwinfo
   - monitoring
   - flashing
   - vbios
-  - boot loop
   - benchmark
-  - msi afterburner
   - nvidia
   - gpu
-  - graphics card
   - graphs
   - gpu-z
   - occt
@@ -27,7 +23,10 @@ tags:
   - 3dmark
   - memory
   - frequency
-  - clock speed
+  - graphics-card
+  - clock-speed
+  - msi-afterburner
+  - core-clocks
 ---
 
 # Table of Contents

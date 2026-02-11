@@ -1,7 +1,7 @@
 ---
 title: Watch & Download Videos w. MPC HC
 date: 2023-12-31 18:45
-aliases: 
+aliases:
   - MPC HC Local Webplayer
 draft: false
 tags:
@@ -10,7 +10,6 @@ tags:
   - classic
   - home
   - cinema
-  - mpc hc
   - yt-dlp
   - youtube
   - local
@@ -19,8 +18,8 @@ tags:
   - videos
   - transcode
   - ffmpeg
-  - player
   - instruction
+  - mpc-hc
 ---
  
 I had no idea MPC HC could view videos via URLs until I read the changelogs for the latest version on their Github page (link below).So I wanted to try it myself.

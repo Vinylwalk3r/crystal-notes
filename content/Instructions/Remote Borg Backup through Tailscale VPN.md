@@ -1,7 +1,7 @@
 ---
 title: Remote Borg Backup through Tailscale VPN
 date: 2023-08-24 22:24
-aliases: 
+aliases:
   - access apps through tailscale
   - remote borg using vpn
 draft: false
@@ -35,7 +35,6 @@ tags:
   - SMART
   - remote
   - unraid
-  - guide
   - instruction
 ---
  
