@@ -4,7 +4,7 @@ date: 2026-02-11 23:41
 aliases:
   - jwcs obs setup
   - tournament streamer
-draft: true
+draft: false
 tags:
   - jwcs
   - instruction
@@ -26,7 +26,7 @@ This guide help you set up the JWCS Rocket League streamer setup. It will guide 
 
 
 # Initial Install
-1. Download the zip containing all assets, OBS and Streamer.Bot from [Mediafire]()
+1. Download the zip containing all assets, OBS and Streamer.Bot from ~~[Mediafire]()~~ (TO BE ADDED)
 2. Go to your *Downloads* folder and cut the archive.
 3. Go to *This PC* > C:\ (Local Disk) and paste it.
 4. Unzip the archive here. 
