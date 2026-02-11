@@ -20,8 +20,10 @@ tags:
   - real-time
   - macros
 ---
+
 ## Foreword
 This guide help you set up the JWCS Rocket League streamer setup. It will guide you through downloading and unpacking the zip package, preparing OBS and Streamer.Bot, setup up the Streamer.Bot Decks and setting up Rocket League.
+
 
 # Initial Install
 1. Download the zip containing all assets, OBS and Streamer.Bot from [Mediafire]()
@@ -31,6 +33,7 @@ This guide help you set up the JWCS Rocket League streamer setup. It will guide 
 5. You'll get a new folder named "OBS_RL_Tournament_Setup". Go into it
 6. From here, you can start OBS and Streamer.Bot using the "shortcuts" I've put there. Go ahead and launch OBS first.
 
+
 # OBS
 >[!Warning]- Some Files are Missing since you last used OBS!
 >If you see this popup,  just click the *Search Directory...* button, then navigate to and select this
@@ -39,11 +42,13 @@ This guide help you set up the JWCS Rocket League streamer setup. It will guide 
 >
 >![[obs-missing-files-popup.png]]
 
+
 ## -- Startup Check --
 After you've started OBS and fixed any missing files, we shall go through and make sure that all the scenes look good. If all scenes pass inspection and doesn't report any errors, we continue.
  
  1. Go to the *Discord Audio* scene and make sure the audio is picked up. 
- 
+
+
 ## -- Connecting Youtube --
 1. Go to the top left, click on *Settings* button.
 2. Then go to the *Stream* tab.
@@ -51,6 +56,7 @@ After you've started OBS and fixed any missing files, we shall go through and ma
 4. Click *Connect Account* and go through the login wizard
    >[!error] YT Login Info
    >Since the login details hasn't been reset yet it makes us unable to login to the stream account. Please contact @vinylwalk3r for more details.
+
 
 # Streamer.Bot (SB):
 ## --  Connecting OBS --
@@ -64,6 +70,8 @@ After you've started OBS and fixed any missing files, we shall go through and ma
 
 >[!tip]- Connectivity Status at a Glance!
 >You can check the connection status of any connected service in the top right hand corner! Click the "Connected x/x" text to see a dropdown with the status off all the configured services.
+
+
 ## -- Youtube --
 
 > [!Help]- Again, we don't have account access so contact @vinylwalk3r for help.
@@ -71,15 +79,18 @@ After you've started OBS and fixed any missing files, we shall go through and ma
 1. Go to `Platforms` > `Youtube`
 2. Find the **Broadcaster Account**, then select *Sign in with Google*.
 3. After having logged in, it should say "Connected" whilst showing the accounts name and icon.
+
+
 ## -- Decks --
 
 (This is needed to get the control panels to work)
 1. Press the *Log In* button at the bottom left corner. Create an account if you don't already have one.
 >[!Warning]- AND SAVE THE LOGIN CREDENTIALS IN A PASSWORD MANAGER IF YOU DONT ALREADY!
 >My recommendation is [Bitwarden](https://bitwarden.com)
-2. In the top right hand corner, click on your *account icon* and, in the drop down menu, select *Decks*.
+2. In the top right hand corner, click on your *account icon* and, in the drop down menu, select *Decks*. OR, if you wanna be lazy, [HERE'S](https://streamer.bot/decks) a link to the Decks dashboard.
 
 Now, for the moment, SB sadly doesn't let us export Decks. So I will have to teach you how to make your own. Please proceed to the next sub category of steps:
+
 
 #### Making your own Decks
 1. Click on *New Deck* in the top right hand corner:
@@ -92,6 +103,8 @@ Now, for the moment, SB sadly doesn't let us export Decks. So I will have to tea
  - **Toggle Switch** - On / Off button, I used these A LOT
  - **Status Indicator** - Currently bugged to the moon, skip these.
  - **Slider** - Cool but lacks functionality at the time of writing.
+
+
 #### Toggle Switches
  1. Select *Toggle Switch*
  2. Set the *Title* to something indicating it's deactivated, for example "GAMEPLAY HIDDEN"
@@ -106,12 +119,16 @@ Now, for the moment, SB sadly doesn't let us export Decks. So I will have to tea
 
 There we go, repeat those steps for all the scenes you wanna be able to switch between.
 And then, lets configure SB to switch the backgrounds to highlight the active one. 
+
+
 #### Current Active Scene Highlighter
 1. In Streamer.Bot, go to *Actions & Queues* > *Actions* 
 2. Find the action named *OBS - Active Scene Finder*
 3. Open up any action in the top row of actions and select change the *Deck* to your Deck, the *Item* to the button we just created and *State* to "0".
    (this is why we gave the button a good name earlier, it's easier to find in this list later)
 4. Then go down and do the same to the actions in the *Switch Cases*, but set their *States* to "1". This will activate only the button that represent the active scene (ie Gameplay or Commentator).
+
+
 #### Winner Buttons
 To make the Match Winner and Final Winner buttons, we must use a normal Button.
 1. Click on a empty button space
@@ -139,5 +156,54 @@ To help me keep the Highlight reels fresh, I created a SB *Action* called "Delet
 # Rocket League
 
 ## -- Installing CustomUI --
+To install CustomUI in Rocket League, we first need to install [BakkesMod](https://bakkesplugins.com). They got a nifty installer so download and run that.
+
+Then we have to install CustomUI. Go to [CustomUIs Bakkesmods page](https://bakkesplugins.com/plugin/503) and click on the *Install with BakkesMod*. Let it do it's thing and you should now have CustomUI installed.
+
+## -- Preparing the Overlays -- 
+This will be the time consuming part. 
+1. Go to `C:\OBS_RL_Tournament_Setup\Rocket League Tournament Assets\Bakkesmods Presets`
+2. Lets start with making a copy of **Example - MATCH**. 
+3. Edit *Match1.png* and add the names of the contestants.
+4. Next, change the preset.json. Use the key combination `CTRL + F + H` to open the "Find-and-Replace" window in your text editor (I'm guess Notepad for this example, we don't need anything fancy).
+5. Write "EXAMPLE" in the top text box, and "<whatever-name-you-want>" in the bottom one. Maybe name it after the contestants ("CONTESTANT1 CONTESTANT2") or "MATCH-1"?
+   This will be the name that shows up in CustomUIs "Choose a Preset" dropdown menu. So make it good. Then simply click *Replace All* and your done. DON'T FORGET TO SAVE THE FILE!
+6. Rename the folder we just worked in to THE SAME NAME you used in step 5!
+7. Save it and redo steps 2 through 6 until you have presets for every match you'll be streaming.
+
+After your down, finally, we have to move our custom overlays into the *Presets* folder. Cut out all your newly made Presets folders and move them here:
+`C:\Users\<your-username>\AppData\Roaming\bakkesmod\bakkesmod\data\CustomUI\Presets`
 
 ## -- Using CustomUI --
+
+#### Startup
+Okay, so now CustomUI is installed. Lets see if it's working. Press the *Windows* key and type "bakkesmod". Press *Enter* and this small window should open:
+![[bakkesmod-injector.png]]
+ Thats the BakkesMod DLL injector. Let it be open and start Rocket League. The small windows should say "Injecting" followed by what you see in the image. That means that it's working.
+
+Now, press F3 and this window should pop up:
+![[customui-preset-dropdown.png]]
+Thats the CustomUI management window. We'll get to know this little window *VERY* well during the stream.
+
+We will be using *Choose a Preset* and *Edit Position / Size* A LOT.
+
+#### Ingame
+1. Start a *Practice Match* and give both sides robot players then join as spectator.
+2. Press F3 and choose a preset. It probably need moving and resizing. 
+3. In the dropdown "Choose Items to Move or Resize" select *Score All Items*.
+4. Then move or resize as need be.
+
+>[!tip]- So you need finer editing controls, aye?
+>If more individual resizing or moving of parts of the UI is necessary, switch tab to *Artist* and tick the checkbox. Then go back and find a lot more parts open to editing. Just remember to untick that box when your done, to get back the "Score All Items" option.
+
+
+## Refrences
+- Streamer.Bot Documentation
+  https://docs.streamer.bot/get-started/introduction
+- Bitwarden
+  https://bitwarden.com
+- BakkesMod
+  https://bakkesplugins.com
+- Custom IU on BakkesMod
+  https://bakkesplugins.com/plugin/503
+- 
