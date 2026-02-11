@@ -37,7 +37,7 @@ This guide help you set up the JWCS Rocket League streamer setup. It will guide 
 >folder: `Rocket League Tournament Assets` . Let it search and it will find everything (and then
 >CRASH!...yes, it crashes for me **EVERY TIME** when I do this....idk why...) 
 >
->![[obs-popup-1.png]]
+>![[obs-missing-files-popup.png]]
 
 ## -- Startup Check --
 After you've started OBS and fixed any missing files, we shall go through and make sure that all the scenes look good. If all scenes pass inspection and doesn't report any errors, we continue.
