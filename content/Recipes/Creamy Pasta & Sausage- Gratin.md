@@ -1,5 +1,5 @@
 ---
-title:Pasta & Sausage- Gratin
+title: Pasta & Sausage- Gratin
 date: 2026-04-16 14:50
 aliases:
   - Pasta Gratin
