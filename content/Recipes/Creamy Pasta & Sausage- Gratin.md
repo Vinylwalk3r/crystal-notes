@@ -12,7 +12,7 @@ Super tasty meal that'll make you full quick and leave you wanting more!
 <img src="assets/pasta-sausage-gratin.webp" id="gratin">l
 
 <style type="text/css">
-#soup {
+#gratin {
 width: 21rem;
 float: right;
 }

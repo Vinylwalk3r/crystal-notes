@@ -26,7 +26,7 @@ float: right;
 </style>
 
 
-### Ingrediens
+### Ingredients
 - 2x Onion
 - 2x Can of White Beans in Tomato sauce
 - 1x Can of Crushed Tomatoes

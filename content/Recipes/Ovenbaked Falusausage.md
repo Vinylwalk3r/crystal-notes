@@ -26,7 +26,7 @@ float: right;
 </style>
 
 
-### Ingrediens
+### Ingredients
 **The Sausage Dish**
 - 1 Whole Falusausage
 - 1x Onion

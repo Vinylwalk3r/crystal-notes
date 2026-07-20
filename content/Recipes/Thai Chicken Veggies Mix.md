@@ -24,7 +24,7 @@ float: right;
 }
 </style>
 
-### Ingrediens
+### Ingredients
 **The Greens**
 - Asparagus
 - Water Chestnuts

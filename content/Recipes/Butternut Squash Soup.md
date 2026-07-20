@@ -21,7 +21,7 @@ A filling and nutrient rich dish that's be sure to keep you going throughout the
 
 <style type="text/css">
 #butternut {
-width: 216rem;
+width: 21rem;
 float: right;
 }
 </style>

@@ -24,7 +24,7 @@ A typical and beloved Thailandish dish that's become loved all over the world. A
 
 <style type="text/css">
 #soup {
-width: 216rem;
+width: 21rem;
 float: right;
 }
 </style>
