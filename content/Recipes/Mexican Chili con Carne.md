@@ -12,6 +12,7 @@ tags:
   - hot
   - chili
   - spicy
+  - meat
 ---
 A Mexican classic that works well any day of the week and is easy to prepare. 
 

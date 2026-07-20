@@ -13,7 +13,7 @@ This little corner of the internet is where I write interesting things I've lear
 
 Maybe [[Activate & Debloat Windows 10 & 11|Activate and Debloat your Windows installation]] or are you more in the mood for setting up [[Instructions for Docker SSH Public Key Authentication|SSH authentication using Public and Private keys]]?
 
-Or are you more inclined towards browsing some [[Docker Compose Codes]]?
+Or is your mouth watering for some tasty [[Recipes]] from both near and far?
 
 <img src="assets/gardening-flower-pot.png" id="R-Flowerpot">
 <img src="assets/flower-garden.png" id="M-Flowers">
