@@ -30,7 +30,7 @@ float: right;
 </style>
 
 ### Ingredients
-**Main Ingredients
+**Main Ingredients**
 - 3x Chicken Fillet
 - Noodles
 - 2x Onion
