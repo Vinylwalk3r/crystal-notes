@@ -1,15 +1,23 @@
 ---
-title:
-date: 2025-11-28 20:10
+title:Pasta & Sausage- Gratin
+date: 2026-04-16 14:50
 aliases:
-  - 
+  - Pasta Gratin
+  - Korvgratäng
 draft: false
 tags:
-  -
+  - pasta
+  - sausage
+  - gratin
+  - gratäng
+  - paprika
+  - dijon
+  - tomato
+  - cheese
 ---
 Super tasty meal that'll make you full quick and leave you wanting more!
 
-<img src="assets/pasta-sausage-gratin.webp" id="gratin">l
+<img src="assets/pasta-sausage-gratin.webp" id="gratin">
 
 <style type="text/css">
 #gratin {
