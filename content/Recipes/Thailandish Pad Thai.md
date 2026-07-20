@@ -20,10 +20,10 @@ tags:
 ---
 A typical and beloved Thailandish dish that's become loved all over the world. A great dish for people that crave Asian cuisine but without the heat!
 
-<img src="assets/pad-thai.jpg" id="pad-thai">
+<img src="assets/pad-thai.jpg" id="padthai">
 
 <style type="text/css">
-#pad-thai {
+#padthai {
 width: 21rem;
 float: right;
 }
