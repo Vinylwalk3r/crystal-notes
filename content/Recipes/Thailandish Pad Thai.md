@@ -23,7 +23,7 @@ A typical and beloved Thailandish dish that's become loved all over the world. A
 <img src="assets/pad-thai.jpg" id="pad-thai">
 
 <style type="text/css">
-#soup {
+#pad-thai {
 width: 21rem;
 float: right;
 }
