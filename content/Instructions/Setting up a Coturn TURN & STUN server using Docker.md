@@ -66,7 +66,7 @@ Firewall Rule = Register Rule
 ### Firewall Rules
 Lets check if the NAT rules created associated Firewall rules. In my case, it didn't so I had to make them myself. Here they are:
 
-_**ALLOW Port 3478**_
+**ALLOW Port 3478**
 ```
 Interface = LAN, WAN
 Interface (origin) = any
@@ -79,7 +79,7 @@ Destination Adress = Single Host ; {ip-of-your-server}
 Destination Port = 3478
 ```
 
-_**ALLOW Portrange 49100-49200**_
+**ALLOW Portrange 49100-49200**
 ```
 Interface = LAN, WAN
 Interface (origin) = any
