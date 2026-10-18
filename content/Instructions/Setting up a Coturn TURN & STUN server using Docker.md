@@ -22,7 +22,7 @@ After having had a rough time to get my Coturn container working, I want to shar
 ## The Router / Firewall Settings
 I run OPNsense so this guide will have the instructions specific to OPNsense but all the ports and protocols will be written for you to use in your own routers OS.
 
-#### Aliases
+### Aliases
 First, lets create a *Alias* for Coturns port range.
 
 >[!info] Coturn Ports
@@ -35,13 +35,13 @@ Name it anything you like.
 Then we change the `Type` to *Port(s)* and set our port range in the `Content` field as such:
 *49100:49200*. 
 
-#### NAT Rules
+### NAT Rules
 Next, lets set up some Firewall rules to allow our TURN traffic to pass through the firewall. We're gonna need two rules.
 
 To begin, go to *Firewall* -> *NAT* -> *Destination NAT* and add a new rule (*+*).
 Then set these settings:
 
-_**ALLOW Port 3478**_
+ **ALLOW Port 3478**
 ```
 Interface = LAN, WAN
 Protocol = TCP/UDP
@@ -52,7 +52,7 @@ Redirect Target Port = 3478
 Firewall Rule = Register Rule
 ```
 
-_**ALLOW Portrange 49100-49200**_
+**ALLOW Portrange 49100-49200**
 ```
 Interface = LAN, WAN
 Protocol = UDP
@@ -63,7 +63,7 @@ Redirect Target Port = {the-name-of-your-port-alias-create-before}
 Firewall Rule = Register Rule
 ```
 
-#### Firewall Rules
+### Firewall Rules
 Lets check if the NAT rules created associated Firewall rules. In my case, it didn't so I had to make them myself. Here they are:
 
 _**ALLOW Port 3478**_
@@ -166,7 +166,7 @@ verbose
 
 If you've gotten this far, the coturn config is mostly self explanatory. I've commented out the tls port since my setup doesn't need it, the coturn isn't exposed to the internet through it's own subdomain. Rather, it leeches off of a shared subdomain. Coturn is only accessed via another container (Haven) which sits behind Caddy, my reverse proxy. So I can't speak for setting a internet exposed Coturn instance but mine is reachable through Haven, me and my friends can connect to it and use voice chat flawlessly now.
 
-### The Caddy File
+## The Caddy File
 The snippet below, from my Caddyfile, is edited mostly to get Haven to play nice but I'm including it here since the TLS parts might be important for other projects using a TURN / STUN setup with Caddy infront.
 
 ```yaml
