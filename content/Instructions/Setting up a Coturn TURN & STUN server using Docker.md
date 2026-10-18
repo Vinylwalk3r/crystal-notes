@@ -135,7 +135,7 @@ services:
      environment:
        # TURN relay for voice over internet
       - TURN_URL=turn:{your.sub.domain}:3478?transport=udp
-      - TURN_SECRET=ccc66334b694c8c57061be77e8b2e71ad5f8997f500d2cfd0d1b2fdcb97849b8        # Shared secret (coturn --use-auth-secret)
+      - TURN_SECRET={a-big-randomly-generate-secret}       # Shared secret (coturn --use-auth-secret)
 ```
 
 >[!warning] Declare the Protocol!
@@ -159,7 +159,7 @@ no-tls
 no-dtls
 
 use-auth-secret
-static-auth-secret=ccc66334b694c8c57061be77e8b2e71ad5f8997f500d2cfd0d1b2fdcb97849b8
+static-auth-secret={a-big-randomly-generate-secret}
 
 verbose
 ```
